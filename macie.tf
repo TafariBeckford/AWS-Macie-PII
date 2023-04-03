@@ -2,9 +2,8 @@ resource "aws_macie2_account" "PII" {
   finding_publishing_frequency = "FIFTEEN_MINUTES"
   status                       = "ENABLED"
 
-  
-}
 
+}
 
 resource "aws_macie2_classification_job" "JOB" {
   job_type = "ONE_TIME"
@@ -17,8 +16,7 @@ resource "aws_macie2_classification_job" "JOB" {
     }
   }
   depends_on = [
-    module.eventbridge,
-    aws_macie2_account.PII]
+  aws_macie2_account.PII]
 }
 
 resource "aws_macie2_custom_data_identifier" "example" {
@@ -43,8 +41,7 @@ resource "aws_macie2_classification_job" "custom" {
     }
   }
   depends_on = [
-    module.eventbridge,
     aws_macie2_account.PII,
-    aws_macie2_custom_data_identifier.example]
+  ]
 }
 

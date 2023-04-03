@@ -8,7 +8,7 @@ variable "email" {
 }
 
 variable "name" {
-  default = "macie-alerts"
+  default = "macie-topic"
 }
 
 data "aws_caller_identity" "current" {}
